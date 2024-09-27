@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert-element-in-array</title>
+    
+</head>
+    
+<body>
+   
+    <input type="text" name="text" id="position" placeholder="enter position">
+    
+    <input type="text" name="element" id="element" placeholder="enter elememt">
+    <button id="btn">click</button>
+
+
+
+
+
+    <script>
+        
+        let btn=document.getElementById("btn");
+        
+        btn.addEventListener('click',()=>{
+            
+            let arr = [13,36,75,89,56];
+            let position = parseInt(document.getElementById("position").value);
+            let new_ele = document.getElementById("element").value;
+            if (isNaN(position) || position < 0 || position > arr.length) {
+                console.log("Invalid position");
+                return;
+            }
+            for(let i=arr.length-1;i>=position;i--){
+                if(i>=position){
+                arr[i+1]=arr[i];
+            }
+                if(i==position){
+                    arr[i]=new_ele;
+                }
+                
+            }
+            console.log(arr)
+            
+    });
+    
+    </script>
+</body>
+</html>
+
+                                     <!-- ***ANOTHER APPROACH*** -->
+
+                                     
+<!-- <body>
+    <input type="text" name="text" id="position" placeholder="enter position">
+    <input type="text" name="element" id="element" placeholder="enter element">
+    <button id="btn">click</button>
+
+    <script>
+        let btn = document.getElementById("btn");
+        let arr = [13, 36, 75, 89, 56];
+        
+        btn.addEventListener('click', () => {
+            let position = parseInt(document.getElementById("position").value);
+            let new_ele = document.getElementById("element").value;
+            
+            if (isNaN(position) || position < 0 || position > arr.length) {
+                console.log("Invalid position");
+                return;
+            }
+
+            for (let i = arr.length; i > position; i--) {
+                arr[i] = arr[i - 1];
+            }
+            arr[position] = new_ele;
+            
+            console.log(arr);
+        });
+    </script>
+</body> -->
